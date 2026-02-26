@@ -1,54 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated, TouchableOpacity } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
-  const scaleAnim = useRef(new Animated.Value(1)).current;
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(scaleAnim, {
-          toValue: 1.05,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-        Animated.timing(scaleAnim, {
-          toValue: 1,
-          duration: 800,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, []);
-
-  const handlePress = () => {
-    Animated.sequence([
-      Animated.timing(scaleAnim, {
-        toValue: 0.95,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1.05,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  };
-
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.card, { transform: [{ scale: scaleAnim }] }]}>
-        <MaterialCommunityIcons name="heart-pulse" size={70} color="#fff" />
-
-        <Text style={styles.title}>Calculadora IMC</Text>
-        <Text style={styles.subtitle}>Vamos cuidar da sua saúde 💙</Text>
-
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Text style={styles.buttonText}>Começar</Text>
-        </TouchableOpacity>
-      </Animated.View>
+      <Text style={styles.title}>Calculadora IMC</Text>
+      <Text style={styles.subtitle}>Bem-vindo ao seu primeiro app!</Text>
     </View>
   );
 }
@@ -56,42 +13,19 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#991515',
+    backgroundColor: '#ecf0f1',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  card: {
-    backgroundColor: '#9c4040',
-    width: '85%',
-    padding: 30,
-    borderRadius: 25,
-    alignItems: 'center',
-    elevation: 8,
+    padding: 20,
   },
   title: {
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#fff',
-    marginTop: 15,
+    color: '#2c3e50',
+    marginBottom: 10,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#f5f6fa',
-    marginVertical: 10,
-    textAlign: 'center',
-  },
-  button: {
-    marginTop: 20,
-    backgroundColor: '#fff',
-    paddingVertical: 12,
-    paddingHorizontal: 35,
-    borderRadius: 20,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#6C5CE7',
+    fontSize: 18,
+    color: '#7f8c8d',
   },
 });
-
-// Este código define a tela inicial do aplicativo, apresentando um cartão animado com um ícone, título, subtítulo e um botão para começar. A animação faz o cartão pulsar suavemente, criando uma experiência visual atraente para o usuário.

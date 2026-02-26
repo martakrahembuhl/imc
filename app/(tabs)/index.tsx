@@ -93,3 +93,5 @@ const styles = StyleSheet.create({
     color: '#6C5CE7',
   },
 });
+
+// Este código define a tela inicial do aplicativo, apresentando um cartão animado com um ícone, título, subtítulo e um botão para começar. A animação faz o cartão pulsar suavemente, criando uma experiência visual atraente para o usuário.
